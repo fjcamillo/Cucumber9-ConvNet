@@ -1,8 +1,7 @@
 # Convolutional Neural Network on Cucumber 9
 
 #### Brief Description TL;DR
-The goal of this repository is to gain knowledge in implementing Convolutional Neural Network on the Cucumber dataset then
-Incorporating it with the hardware solution.
+The goal of this repository is to gain knowledge in implementing Convolutional Neural Network on the Cucumber dataset.
 ---
 #### Description
 In advancing knowledge about convolutional neural networks, we must first understand the basic parts of a CNN. In this project we will create a 
