@@ -4,7 +4,7 @@
 The goal of this repository is to gain knowledge in implementing Convolutional Neural Network on the Cucumber dataset.
 ---
 #### Description
-In advancing knowledge about convolutional neural networks, we must first understand the basic parts of a CNN. In this project we will create a 
+In advancing knowledge about convolutional neural networks, we must first understand the basic parts of a CNN. In this project we will create 3 different models and see how they classify the images, and learn which produces higher accuracy in classifying cucumbers
 ---
 ### Models Used
 1. Perceptron
