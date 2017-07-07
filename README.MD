@@ -13,9 +13,13 @@ In advancing knowledge about convolutional neural networks, we must first unders
 ### Models Used
 1. Perceptron
 
-- The perceptron is a the simplest example of a neural network. Representing a single neuron, the perceptron takes in all 1024 pixels of the first channel of the cucumber dataset.
+- The perceptron is the simplest example of a neural network. Representing a single neuron, the perceptron takes in all 1024 pixels of the first channel of the cucumber dataset with their corresponding weights and biases. Then computes its logits value using the function below with softmax as its activation function. 
+
+$ f(x) $
 
 2. 3 Layer Feed Forward Neural Network
+
+- The next model created is a 3 Layer Feed Forward Neural Network, This model is composed of an input layer, 3 Hidden Layers, and an Output Layer (naming a neural net is still quite ambiguous, we can either name it using the number of input layers or the total number of layers ). For this model the it takes in all 1024 pixels of the r channel and outputs a 9 classification that are one hot encoded. For the middle layers, we used ReLU as our actovation function and softmax for our output layer.
 3. Convolutional Neural Network
 ---
 ### About the Dataset
