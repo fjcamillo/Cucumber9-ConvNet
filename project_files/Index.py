@@ -1,7 +1,6 @@
 import tensorflow as tf
 import numpy as np
-import cPickle
-import pandas as pd
+import _pickle as cPickle
 import time
 
 with open('./inputs/data_batch_1') as f:
@@ -62,7 +61,10 @@ training_label = dataset['labels'][:2000]
 test_feature = dataset['features'][6000:]
 test_label = dataset['labels'][2000:]
 
-def main():
+training_conv = training_feature.reshape(2000,32,32,3)
+testing_conv = test_feature.reshape(475,32,32,3)
+
+def main(training_conv, testing_conv, training_label, test_label):
     with tf.device("/cpu:0"):
         x1 = tf.placeholder(tf.float32, [None, 32, 32, 3])
         yfinal = tf.placeholder(tf.float32, [None, 9])
@@ -109,4 +111,4 @@ def main():
 
 
 if __name__ == '__main__':
-  main()
+  main(training_conv, testing_conv, training_label, test_label)
