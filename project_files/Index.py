@@ -88,6 +88,19 @@ def main():
         fc2 = tf.matmul(fc, w2)+b2
         cross_entropy = tf.nn.softmax_cross_entropy_with_logits(labels=yfinal, logits=fc2)
         train = tf.train.AdamOptimizer(0.05).minimize(cross_entropy)
+        
+    sess = tf.InteractiveSession()
+    tf.global_variables_initializer().run()
+    epoch = 10000
+    start = time.time()
+    for i in range(epoch):
+        if i%100==0:
+            correct_prediction = tf.equal(tf.argmax(yfinal, 1), tf.argmax(fc2, 1))
+            accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
+            print(sess.run(accuracy, {x1: testing_conv, yfinal:test_label}))
+        sess.run(train, {x1: training_conv,yfinal:training_label})
+    end = time.time() - start
+    print("Total Time: {}".format(end))
 
 
 
