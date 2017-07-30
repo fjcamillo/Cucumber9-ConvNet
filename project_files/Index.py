@@ -88,7 +88,7 @@ def main():
         fc2 = tf.matmul(fc, w2)+b2
         cross_entropy = tf.nn.softmax_cross_entropy_with_logits(labels=yfinal, logits=fc2)
         train = tf.train.AdamOptimizer(0.05).minimize(cross_entropy)
-        
+
     sess = tf.InteractiveSession()
     tf.global_variables_initializer().run()
     epoch = 10000
@@ -101,6 +101,9 @@ def main():
         sess.run(train, {x1: training_conv,yfinal:training_label})
     end = time.time() - start
     print("Total Time: {}".format(end))
+
+    with open('./w1.txt', 'w') as weight_writer:
+        weight_writer.write(sess.run(w1))
 
 
 
