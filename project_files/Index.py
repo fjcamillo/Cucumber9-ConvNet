@@ -1,6 +1,6 @@
 import tensorflow as tf
 import numpy as np
-import _pickle as cPickle
+import cPickle
 import time
 
 with open('./inputs/data_batch_1') as f:
@@ -65,7 +65,7 @@ training_conv = training_feature.reshape(2000,32,32,3)
 testing_conv = test_feature.reshape(475,32,32,3)
 
 def main(training_conv, testing_conv, training_label, test_label):
-    with tf.device("/cpu:0"):
+    with tf.device("/gpu:0"):
         x1 = tf.placeholder(tf.float32, [None, 32, 32, 3])
         yfinal = tf.placeholder(tf.float32, [None, 9])
 
@@ -96,6 +96,7 @@ def main(training_conv, testing_conv, training_label, test_label):
     epoch = 10000
     start = time.time()
     for i in range(epoch):
+        print(i)
         if i%100==0:
             correct_prediction = tf.equal(tf.argmax(yfinal, 1), tf.argmax(fc2, 1))
             accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
